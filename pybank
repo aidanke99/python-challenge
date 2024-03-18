@@ -1,1 +1,106 @@
+import os
+import csv
 
+budget_data_csv = os.path.join(" .. ", "Resources", "budget_data.csv")
+budget_file = budget_data_csv
+
+def sum_rows(budget_file):
+    with open(budget_file, 'r') as budget_file:
+        csvreader = csv.reader(budget_file)
+        sum_result =  []
+        for row in csvreader:
+            row_sum = sum(map(float, row))
+            sum_result.append(row_sum)
+        return sum_result
+result = sum_rows(budget_file)
+print(result)
+-----------------------------------------------------------------
+def sum_rows(budget_file):
+    with open(budget_data_csv, 'r') as budget_file:
+        csvreader = csv.reader(budget_file)
+        sum_result =  []
+        for row in csvreader:
+            row_sum = sum(map(float, row))
+            sum_result.append(row_sum)
+        return sum_result
+result = sum_rows(budget_file)
+print(result)
+-------------------------------------------------------
+def sum_value_in_csv(budget_file):
+    total_sum = 0
+
+    with open(budget_file, 'r') as budget_file:
+        csv_reader = csv.reader(budget_file)
+
+        next(csv_reader)
+
+        for row in csv_reader
+        value = float(row[1])
+        total = total_sum + abs(value)
+
+return total_sum
+
+total_sum = sum_value_in_csv(budget_file)
+print("total sum is", total_sum)
+
+----------------------------------------------------------
+def sum_net_value_in_csv(budget_file):
+    total_net_sum = 0
+
+    with open(budget_file, 'r') as budget_file:
+        csv_reader = csv.reader(budget_file)
+
+        next(csv_reader)
+
+        for row in csv_reader
+        value = float(row[1])
+        total = total_net_sum + value
+
+return total_net_sum
+
+total_net_sum = sum_net_value_in_csv(budget_file)
+
+total_net_sum / 86 = avg_movement
+
+print("Average movement from month to month is", ave_movement)
+
+---------------------------------------------------------------
+def find_max_in_csv(budget_file):
+    max_value = 0
+
+    with open(budget_data_csv, 'r') as budget_file:
+        csv_reader =  csv.reader(budget_file)
+
+    next(csv_reader)
+
+    for row in csv_reader:
+        value = float(row[1])
+
+        if max_value is None or > max_value:
+            max_value = value
+
+    return max_value
+
+filename = budget_data.csv
+max_value = find_max_in_csv(budget_file)
+print("Max return for a month was: ", max_value)
+
+--------------------------------------------------------------------
+def find_min_in_csv(budget_file):
+    min_value = 0
+
+    with open(budget_data_csv, 'r') as budget_file:
+        csv_reader =  csv.reader(budget_file)
+
+    next(csv_reader)
+
+    for row in csv_reader:
+        value = float(row[1])
+
+        if min_value is None or < min_value:
+            min_value = value
+
+    return min_value
+filename = budget_data.csv
+min_value = find_min_in_csv(budget_file)
+print("Min return for a month was: ", min_value)
