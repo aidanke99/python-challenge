@@ -1,1 +1,19 @@
+PyBank:
+In this challenge, the goal was to find the change in profit/losses per month over a long period of time. We found that in the dataset, each row showed the change over a 1 month period
+with 86 months total. The first task had us find the total sum of the movement over the 86 months, and this was done by totalling the absolute values of all the profit/losses. This was a 
+large number totalling in $52,122,832 in total movement, showing the total movemement over the course of 86 months was volatile, with large ups and downs.
+From there, we needed to find the average net monthly movement, so there was no need to make absolute values for the negative months. Once the net total movement was found, we divided this
+number by the total months (86), and found the average monthly movement to be 262,374.395. While this is still a large number, and shows the volatilty of the investments from month to month 
+is significantly lower, and shows that the investments were on average profitable. The last metric we needed to find was the month with the highest return and highest loss.
+Over the 86 month period, we were able to find the worst month occured on December of 2010, with a loss of 1,194,133 and the biggest gain occured in March of 2013, for a profit of 1,141,840.
+While the biggest losing month was larger than the biggest winning month, overall the trades made a profit, and profited on an average monthly basis. This shows that in a volatile market,
+losses can be large, but consistency trumps the bad months. Overall, there were much more profitable months than negative, and the bad month in 2010 did not have a significantly bad 
+impact on the 86 months of trading
 
+PyPoll:
+In the second challenge, we look at a much larger data set to see a rural areas poll between three candidates fighting to win an election. The three candidates, Charles, Raymon, and Diana
+The datasheet is messy, and shows counts in individual areas, and it is our task to group the data together to see who ends in victory.
+To start, we counted the total number of votes in the entire election, and the result is 1,901,268,520,042. This is a very large number, and with a voting size so large, we needed to break
+this down into the number of votes for each of the three candidates. To do this, I wrote a formula that would pull the three unique names from the election, and then would count every vote
+that was under there name, skipping the total votes if it were for another candidate. The results showed a massive win for Diana. With 1,652,373,440,459 votes, Diana won 86.9% of the total
+votes! Coming in second place with 209,750,048,043 votes (11%) was Charles, and Raymond finished in third with 39,145,031,540 votes (2.1%). 
