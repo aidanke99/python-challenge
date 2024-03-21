@@ -3,7 +3,7 @@ import csv
 
 # directing which csv the code should pull from
 
-budget_data_csv = os.path.join(" .. ", "Resources", "budget_data.csv")
+budget_data_csv = os.path.join("/Users/aidanke/Documents/Northwestern/NU-VIRT-DATA-PT-02-2024-U-LOLC/python-challenge/PyBank/Resources/budget_data.csv")
 budget_file = budget_data_csv
 
 # calculating the total number of rows in csv file to dtermine the total number of months
