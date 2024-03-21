@@ -1,0 +1,83 @@
+import os
+import csv
+
+election_data_csv = os.path.join("NU-VIRT-DATA-PT-02-2024-U-LOLC/python-challenge/PyPoll/Resources/election_data.csv")
+election_file = election_data_csv
+
+# calculate the total number of votes casted by summning uo all of the value in column one of the csv file
+
+def sum_column_in_csv(election_file):
+    total_sum = 0
+    with open(election_data_csv, 'r') as election_file:
+        csv_reader = csv.reader(election_file)
+        
+        next(csv_reader)
+        
+        for row in csv_reader:
+            value = float(row[0])
+            total_sum = total_sum + value
+    return total_sum
+
+total_sum = sum_column_in_csv(election_file)
+print("total votes casted is", total_sum)
+
+# use the unique function to skip over every recourring name until a new candidate is found and add name to list of the total candidates in election
+
+def find_unique_candidate_names(election_file):
+    unique_candidate_names = set()
+
+    with open(election_data_csv, 'r') as election_file:
+        csv_reader = csv.reader(election_file)
+
+        next(csv_reader)
+
+        for row in csv_reader:
+            candidate_name = row[2]
+            unique_candidate_names.add(candidate_name)
+    
+    return unique_candidate_names
+unique_candidate_names = find_unique_candidate_names(election_file)
+
+print("The candidates are", unique_candidate_names)
+
+# once three candidates are found, calculate the number of total voted for each candidate
+
+def sum_votes_per_candidate(election_file):
+    votes_per_candidate = {}
+
+    with open(election_data_csv, 'r') as election_file:
+        csv_reader = csv.reader(election_file)
+
+        next(csv_reader)
+
+        for row in csv_reader:
+            candidate_name = row[2]
+            votes = int(row[0])
+
+            if candidate_name in votes_per_candidate:
+                votes_per_candidate[candidate_name] += votes
+            else:
+                votes_per_candidate[candidate_name] = votes
+    return votes_per_candidate
+
+votes_per_candidate = sum_votes_per_candidate(election_file)
+print("votes per candidate", votes_per_candidate)
+
+# using arithmetic, calculate the percentage of voted for each candidate
+
+percent_of_votes_charles = 209750048043 / total_sum
+percent_of_votes_raymon = 39145031540 / total_sum
+percent_of_votes_diana = 1652373440459 / total_sum
+
+print(percent_of_votes_charles)
+print(percent_of_votes_diana)
+print(percent_of_votes_raymon)
+print("With 209750048043 votes, Charles won 11.0% of the votes")
+print("With 1652373440459 votes, Diana won 86.9% of votes")
+print("With 39145031540 votes, Raymon won 2.1% of the votes")
+
+# whoever has the largest percentage of votes wins the election, print candidate as the winner
+
+print("Diana wins the election!")
+                
+
